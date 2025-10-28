@@ -1,0 +1,11 @@
+<ul class="products_list">
+  {{#each products}}
+    <li class="product_item">
+      <img src="{{image}}" alt="{{name}}" class="image" />
+      <h2 class="name">{{name}}</h2>
+      <p class="price">{{price}}$</p>
+      <p class="description">{{description}}</p>
+      <button class="delete" data-id="{{id}}">Видалити</button>
+    </li>
+  {{/each}}
+</ul>
