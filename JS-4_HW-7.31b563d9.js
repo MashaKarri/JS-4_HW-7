@@ -719,6 +719,7 @@ var _dataJs = require("../data.js");
 var _productsHbs = require("./templates/products.hbs");
 var _productsHbsDefault = parcelHelpers.interopDefault(_productsHbs);
 const area = document.querySelector(".area");
+const searchInput = document.querySelector(".search-input");
 const addBtn = document.querySelector(".add-btn");
 const nameInput = document.querySelector(".name-input");
 const priceInput = document.querySelector(".price-input");
@@ -755,6 +756,13 @@ area.addEventListener("click", (e)=>{
         productList = productList.filter((product)=>product.id !== id);
         update();
     }
+});
+searchInput.addEventListener("input", ()=>{
+    const productSearch = searchInput.value.toLowerCase();
+    const filtered = productList.filter((product)=>product.name.toLowerCase().includes(productSearch));
+    area.innerHTML = (0, _productsHbsDefault.default)({
+        products: filtered
+    });
 });
 
 },{"../data.js":"fFIED","./templates/products.hbs":"dZaV6","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"fFIED":[function(require,module,exports,__globalThis) {
